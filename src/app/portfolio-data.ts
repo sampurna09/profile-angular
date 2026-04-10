@@ -27,7 +27,7 @@ export interface ContactItem {
 export const portfolioName = 'Sampurna Shrestha';
 export const portfolioTitle = 'Java Developer | Backend Engineer | API Specialist';
 export const portfolioIntro = 'I build secure Java backends, design clean REST APIs, and connect complex systems across government, payment, and integration-heavy platforms.';
-export const profilePhoto = '/assets/profile-placeholder.svg';
+export const profilePhoto = 'assets/profile-placeholder.svg';
 
 export const navItems: NavItem[] = [
   { label: 'Home', path: '/', exact: true },
@@ -77,7 +77,7 @@ export const projects: ProjectItem[] = [
     description: 'Built and supported payment-facing backend flows with a focus on reliability, secure transaction handling, and predictable integration contracts.',
     impact: 'Improved consistency across payment operations and downstream integrations.',
     tech: ['Java', 'Spring Boot', 'REST', 'SQL'],
-    thumbnail: '/assets/project-payment.svg'
+    thumbnail: 'assets/project-payment.svg'
   },
   {
     title: 'Public Service Systems',
@@ -85,7 +85,7 @@ export const projects: ProjectItem[] = [
     description: 'Contributed to backend systems used in public workflows, prioritizing auditability, maintainability, and dependable service behavior.',
     impact: 'Supported stable services for critical public-sector workflows.',
     tech: ['Java', 'APIs', 'SQL', 'Business rules'],
-    thumbnail: '/assets/project-operations.svg'
+    thumbnail: 'assets/project-operations.svg'
   },
   {
     title: 'Integration Gateway',
@@ -93,7 +93,7 @@ export const projects: ProjectItem[] = [
     description: 'Integrated external systems and exchange points to keep data flowing between services with predictable handshakes and resilient error handling.',
     impact: 'Enabled smoother cross-system data exchange between platforms.',
     tech: ['REST APIs', 'Kafka', 'ActiveMQ', 'Validation'],
-    thumbnail: '/assets/project-gateway.svg'
+    thumbnail: 'assets/project-gateway.svg'
   }
 ];
 
