@@ -1,156 +1,48 @@
-<div class="page-shell">
+<div class="page-shell" appMouseParallax [class.light-theme]="isLightTheme">
+  @if (showIntro) {
+    <div class="intro-overlay" aria-live="polite">
+      <div class="intro-content">
+        <p class="intro-kicker">Loading portfolio</p>
+        <h2>{{ name }}</h2>
+      </div>
+    </div>
+  }
+
+  <div class="noise-layer" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
   <header class="topbar">
-    <a class="brand" href="#hero">{{ name }}</a>
+    <div class="brand-stack">
+      <span class="status-pill">Open for backend roles</span>
+      <a class="brand" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        {{ name }}
+      </a>
+    </div>
 
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      @for (item of navItems; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: !!item.exact }"
+        >
+          {{ item.label }}
+        </a>
+      }
     </nav>
 
-    <a class="button button-ghost" href="#contact">Let’s talk</a>
+    <div class="top-actions">
+      <button class="button button-ghost" type="button" (click)="toggleTheme()">
+        {{ isLightTheme ? 'Dark' : 'Light' }} mode
+      </button>
+      <a class="button button-ghost" routerLink="/contact">Let’s talk</a>
+    </div>
   </header>
 
-  <main>
-    <section id="hero" class="hero section-card">
-      <div class="hero-copy">
-        <p class="eyebrow">Backend engineer • API specialist • Integration-focused</p>
-        <h1>{{ name }}</h1>
-        <h2>{{ title }}</h2>
-        <p class="lead">{{ intro }}</p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#projects">View projects</a>
-          <a class="button button-ghost" href="#about">About me</a>
-        </div>
-
-        <div class="hero-stats">
-          @for (stat of stats; track stat.label) {
-            <article>
-              <strong>{{ stat.value }}</strong>
-              <span>{{ stat.label }}</span>
-            </article>
-          }
-        </div>
-      </div>
-
-      <div class="hero-visual" aria-hidden="true">
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-        <div class="orb orb-three"></div>
-
-        <div class="glass-card depth-card">
-          <p class="card-label">Core stack</p>
-          <ul>
-            <li>Java & Spring Boot</li>
-            <li>REST APIs & integrations</li>
-            <li>SQL, Kafka, ActiveMQ</li>
-            <li>Git & CI / CD</li>
-          </ul>
-        </div>
-
-        <div class="floating-chip chip-one">Reliable services</div>
-        <div class="floating-chip chip-two">Clean APIs</div>
-      </div>
-    </section>
-
-    <section id="about" class="section-card split-section">
-      <div>
-        <p class="section-kicker">About me</p>
-        <h3>Backend developer with government and payment system experience</h3>
-        <p>
-          I focus on building dependable backend systems, integrating external platforms, and keeping
-          services maintainable for the long run. My recent experience includes government systems at
-          FCGO, payment work with Fonepay, and API integrations for EPF, CIT, and SSF.
-        </p>
-      </div>
-
-      <div class="stacked-points">
-        @for (point of aboutPoints; track point) {
-          <article>
-            <span class="point-dot"></span>
-            <p>{{ point }}</p>
-          </article>
-        }
-      </div>
-    </section>
-
-    <section id="skills" class="section-card">
-      <p class="section-kicker">Skills</p>
-      <h3>Tools and technologies I use to ship backend work</h3>
-
-      <div class="skills-grid">
-        @for (group of skills; track group.name) {
-          <article class="skill-card depth-card">
-            <h4>{{ group.name }}</h4>
-            <div class="skill-tags">
-              @for (item of group.items; track item) {
-                <span>{{ item }}</span>
-              }
-            </div>
-          </article>
-        }
-      </div>
-    </section>
-
-    <section id="projects" class="section-card">
-      <p class="section-kicker">Projects</p>
-      <h3>Real work across payment, government, and integration systems</h3>
-
-      <div class="projects-grid">
-        @for (project of projects; track project.title) {
-          <article class="project-card depth-card">
-            <div class="project-head">
-              <span>{{ project.category }}</span>
-              <h4>{{ project.title }}</h4>
-            </div>
-
-            <p>{{ project.description }}</p>
-
-            <div class="project-footer">
-              <strong>{{ project.impact }}</strong>
-              <div class="skill-tags compact">
-                @for (tech of project.tech; track tech) {
-                  <span>{{ tech }}</span>
-                }
-              </div>
-            </div>
-          </article>
-        }
-      </div>
-    </section>
-
-    <section id="experience" class="section-card split-section">
-      <div>
-        <p class="section-kicker">Experience</p>
-        <h3>{{ experience.role }} @ {{ experience.company }}</h3>
-        <p>{{ experience.period }}</p>
-      </div>
-
-      <div class="experience-card depth-card">
-        @for (bullet of experience.bullets; track bullet) {
-          <article>
-            <span class="timeline-dot"></span>
-            <p>{{ bullet }}</p>
-          </article>
-        }
-      </div>
-    </section>
-
-    <section id="contact" class="section-card contact-card">
-      <p class="section-kicker">Contact</p>
-      <h3>Let’s build dependable backend systems together</h3>
-
-      <div class="contact-links">
-        @for (contact of contacts; track contact.label) {
-          <a class="contact-link depth-card" [href]="contact.href" target="_blank" rel="noopener">
-            <span>{{ contact.label }}</span>
-            <strong>{{ contact.value }}</strong>
-          </a>
-        }
-      </div>
-    </section>
+  <main [@routeAnimations]="prepareRoute(outlet)">
+    <div class="route-stage">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
   </main>
 </div>

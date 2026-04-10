@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="AI style profile portrait">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617" />
+      <stop offset="45%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#312e81" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.95" />
+      <stop offset="55%" stop-color="#a78bfa" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="portrait" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)" />
+  <circle cx="300" cy="210" r="165" fill="url(#glow)" />
+  <circle cx="300" cy="210" r="128" fill="#0b1220" stroke="#7dd3fc" stroke-opacity="0.18" stroke-width="2" />
+  <path d="M230 282c22-34 48-51 70-51s48 17 70 51v76H230z" fill="url(#portrait)" opacity="0.92" />
+  <circle cx="300" cy="220" r="62" fill="#cbd5e1" opacity="0.96" />
+  <path d="M262 224c5-16 18-27 38-27s33 11 38 27" fill="none" stroke="#0f172a" stroke-width="10" stroke-linecap="round" opacity="0.9" />
+  <path d="M255 248c13 15 29 22 45 22s32-7 45-22" fill="none" stroke="#0f172a" stroke-width="8" stroke-linecap="round" opacity="0.55" />
+  <path d="M210 416c24-54 68-84 90-84s66 30 90 84" fill="none" stroke="url(#portrait)" stroke-width="26" stroke-linecap="round" opacity="0.85" />
+  <circle cx="170" cy="158" r="18" fill="#7dd3fc" fill-opacity="0.85" />
+  <circle cx="430" cy="154" r="10" fill="#a78bfa" fill-opacity="0.9" />
+  <circle cx="458" cy="468" r="14" fill="#22d3ee" fill-opacity="0.8" />
+  <text x="300" y="548" fill="#e2e8f0" font-size="30" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif">Sampurna Shrestha</text>
+</svg>
+
